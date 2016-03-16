@@ -43,11 +43,22 @@
 				width:1380px;
 				height:500000000;
 		 }
-		 #slides	{
-		 	float: right;
-		 	padding:10px;
-		 }
-		
+	#slideshow { 
+    margin: 50px auto; 
+    position: relative; 
+    width: 240px; 
+    height: 240px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
 	</style>
     </head>
     <body background="http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/eight_horns.png">
@@ -63,8 +74,32 @@
             </thead>
         </table>
 	
-<iframe id="slides" src="//www.slideshare.net/slideshow/embed_code/key/90OFO08MbGByVe" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/AmanAli22/principality-59499843" title="Principality" target="_blank">Principality</a></div>    
-    
+<!--<iframe id="slides" src="//www.slideshare.net/slideshow/embed_code/key/90OFO08MbGByVe" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/AmanAli22/principality-59499843" title="Principality" target="_blank">Principality</a></div>    
+    -->
+    <div id="slideshow">
+   <div>
+     <img src="//farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg">
+   </div>
+   <div>
+     <img src="//farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg">
+   </div>
+   <div>
+     Pretty cool eh? This slide is proof the content can be anything.
+   </div>
+</div>
+<script>
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  3000);
+	
+</script>
   
 
     </body>
