@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cube threejs</title>
+<style>
+
+</style>
+</head>
+<body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.js"></script>
+<script>
+var scene, camera, renderer;
+var geometry, material, cube;
+
+init();
+animate();
+
+function init() {
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera.position.z = 1000;
+
+    geometry = new THREE.BoxGeometry( 200, 200, 200 );
+    material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+
+    cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    document.body.appendChild( renderer.domElement );
+
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.02;
+	cube.rotation.x += 0.03;
+
+    renderer.render( scene, camera );
+
+}
+</script>
+</body>
+</html>
